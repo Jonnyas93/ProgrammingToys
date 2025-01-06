@@ -20,7 +20,7 @@ def longest_substring(string):
                 currentQueue.clear()
                 currentQueue.append(string[i])
     print("".join(longestQueue))
-    
+
 if __name__ == "__main__":
     longest_substring("225424272163254474441338664823")
     longest_substring("594127169973391692147228678476")
