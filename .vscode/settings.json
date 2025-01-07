@@ -1,4 +1,8 @@
 {
     "workbench.colorTheme": "Darcula Pycharm with Dark GUI",
-    "python.REPL.enableREPLSmartSend": false
+    "python.REPL.enableREPLSmartSend": false,
+    "cSpell.words": [
+        "farey",
+        "skiprows"
+    ]
 }
