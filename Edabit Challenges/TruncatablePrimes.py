@@ -1,6 +1,11 @@
+# Function to check if a number is a truncatable prime
 def truncatable_primes(num):
+    # Check if the number is truncatable from the left
     left = left_check(num)
+    # Check if the number is truncatable from the right
     right = right_check(num)
+    
+    # Determine the type of truncatable prime
     if left == True and right == True:
         return "both"
     elif left == True and right == False:
@@ -10,26 +15,38 @@ def truncatable_primes(num):
     else:
         return False
 
+# Function to check if a number is a left truncatable prime
 def left_check(num):
     for i in range(len(str(num))):
+        # If any digit is '0', it's not a truncatable prime
         if str(num)[i] == "0":
             return False
         else:
+            # Check if the remaining part of the number is prime, accounting for the last digit
             if i == len(str(num)):
-                return is_prime(int(str(num)[i]))
+                if is_prime(int(str(num)[i])) == False:
+                    return False
             else:
                 index = i
-                return is_prime(int(str(num)[index:]))
+                if is_prime(int(str(num)[index:])) == False:
+                    return False
+    return True
 
+# Function to check if a number is a right truncatable prime
 def right_check(num):
     for i in range(len(str(num))-1,0,-1):
+        # If any digit is '0', it's not a truncatable prime
         if str(num)[i] == "0":
             return False
         else:
+            # Check if the remaining part of the number is prime, accounting for the first digit
             if i == 0:
-                return is_prime(int(str(num)[i]))
+                if is_prime(int(str(num)[i])) == False:
+                    return False
             else:
-                return is_prime(int(str(num)[:i]))
+                if is_prime(int(str(num)[:i])) == False:
+                    return False
+    return True
 
 def is_prime(n):
     # Handle edge cases
